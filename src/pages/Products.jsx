@@ -51,8 +51,8 @@ export default function Products() {
         <textarea placeholder="Description" value={form.description} onChange={e=>setForm({...form, description:e.target.value})} />
         <input type="number" step="0.01" placeholder="Price" value={form.price} onChange={e=>setForm({...form, price:e.target.value})} required />
         <input type="number" placeholder="Stock" value={form.stock} onChange={e=>setForm({...form, stock:e.target.value})} required />
-        <input type="file" accept="image/*" onChange={onFile} />
-        {form.imageUrl && <img src={form.imageUrl} alt="" style={{ width:120 }} />}
+        {/* <input type="file" accept="image/*" onChange={onFile} />
+        {form.imageUrl && <img src={form.imageUrl} alt="" style={{ width:120 }} />} */}
         <button type="submit">{editing ? "Update" : "Create"}</button>
         {editing && <button type="button" onClick={()=>{setEditing(null); setForm({ name:"", description:"", price:0, stock:0, imageUrl:"" });}}>Hủy</button>}
       </form>
@@ -66,7 +66,7 @@ export default function Products() {
               <b>{p.name}</b> — ${p.price} — stock: {p.stock}
             </div>
             <button onClick={()=>edit(p)}>Chỉnh sửa</button>
-            <button onClick={()=>del(p._id)}>Xóa</button>
+            <button onClick={()=>del(p.id)}>Xóa</button>
           </li>
         ))}
       </ul>
